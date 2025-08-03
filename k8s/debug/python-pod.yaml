@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: python-curl
+spec:
+  restartPolicy: Never
+  containers:
+  - name: python
+    image: python:3.10-slim
+    command: ["bash", "-c"]
+    args:
+      - |
+        apt-get update && \
+        apt-get install -y curl && \
+        curl https://api.ipify.org && \
+        sleep 3600
+    resources:
+      requests:
+        cpu: 1
+        memory: 1Gi
+      limits:
+        cpu: 1
+        memory: 1Gi
