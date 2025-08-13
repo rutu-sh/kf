@@ -1,0 +1,3 @@
+export METALLB_WORKER=<node-name>
+export METALLB_WORKER_IP=<IP>
+envsubst < metallb.yaml | kubectl apply -f -
